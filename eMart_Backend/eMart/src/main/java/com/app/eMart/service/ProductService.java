@@ -3,6 +3,7 @@ package com.app.eMart.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.app.eMart.entity.Category;
 import com.app.eMart.entity.Product;
 
 public interface ProductService {
@@ -16,5 +17,7 @@ public interface ProductService {
 	public Object updateProduct(Long id, Product product);
 
 	public void deleteProductById(long id);
+
+	public List<Category> getAllCategory();
 
 }

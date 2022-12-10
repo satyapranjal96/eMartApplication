@@ -1,0 +1,54 @@
+<form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label><form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label >Product Name</label>
+      <input type="text" [(ngModel)]="productName" name="productName" class="form-control"  placeholder="Product Name">
+    </div>
+    <div class="form-group col-md-6">
+      <label >Product Price</label>
+      <input type="number" [(ngModel)]="productPrice" name="productPrice" class="form-control"  placeholder="Product Price">
+    </div>
+  </div>
+  <br>
+  <form >
+    <label>Choose a category:</label>
+    <select [(ngModel)]="productCategoryId" name="productCategory" (change)="getType()" >
+      <option *ngFor="let category of categoryList" value="{{category.id}}"  >{{category.name}}</option>
+    </select>
+
+    <!-- <select [(ngModel)]="productCategory" name="productCategory" (change)="getType(productCategory)">
+      <option value = "1">1</option>
+      <option value = "2">2</option>
+      <option value = "3">3</option>
+    </select>  -->
+
+  </form>
+  <br>
+  <div class="form-group">
+    <label >Product Description</label>
+    <input type="text" [(ngModel)]="productDescription" name="productDescription" class="form-control"  placeholder="Product Description">
+  </div>
+  <div class="form-group">
+    <label >Brand name</label>
+    <input type="text" [(ngModel)]="brandName" name="brandName" class="form-control" placeholder="Brand name">
+  </div>
+  <div class="form-group">
+    <label >Image Url</label>
+    <input type="url" [(ngModel)]="imageUrl" name="imageUrl" class="form-control" placeholder="Image Url">
+  </div>
+  <div class="form-group">
+    <label >Date of Addition</label>
+    <input  [(ngModel)]="date"  name="datetime" class="form-control" placeholder="Date of Addition" 
+    type="datetime-local" id="meeting-time"
+        value="2018-06-12T19:30"
+       min="2018-06-07T00:00" max="2018-06-14T00:00"
+    >
+  </div>
+
+  <div class="form-group">
+  </div>
+  <button type="button" class="btn btn-primary" (click)="insertProduct()">add</button>
+</form>

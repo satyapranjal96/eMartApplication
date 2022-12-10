@@ -1,0 +1,17 @@
+<div>
+  <a (click)="insertUpdateProduct()" class="btn btn-info btn-lg" style=" float:right">
+    <span class="glyphicon glyphicon-plus" style="color: green;"></span>Add Product
+  </a>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-md-4" *ngFor="let product of productList ; let i = index" style = "height: 600px;width:500px;">
+      <div class="thumbnail" *ngIf="i<12" >
+        <img src="{{product.productImageUrl}}" alt="Image" style = "height: 350px;width:350px;">
+        <div class="caption">
+          <h3>{{product.productName}}</h3>
+          <p>{{product.productDescription}}</p>
+          <p style = "text-align: center;"><a href="#" class="btn btn-primary" role="button">Buy Now</a> </p>
+        </div>
+      </div>
+    </div>
+  </div>

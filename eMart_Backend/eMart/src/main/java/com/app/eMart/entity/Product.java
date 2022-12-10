@@ -15,9 +15,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="product")
@@ -47,8 +49,11 @@ public class Product {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date productDate;
 	
-	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@SuppressWarnings("deprecation")
+	@ManyToOne(fetch = FetchType.EAGER, optional = false,cascade=CascadeType.ALL)
     @JoinColumn(name = "cat_id", referencedColumnName = "id",nullable = false)
+	@Cascade(value={org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
+	//@JsonIgnore
 	private Category catId;
 	
 	public Product() {

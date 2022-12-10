@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.app.eMart.entity.Category;
 import com.app.eMart.entity.Product;
+import com.app.eMart.repository.CategoryRepository;
 import com.app.eMart.repository.ProductRepository;
 import com.app.eMart.service.ProductService;
 
@@ -15,6 +17,9 @@ public class ProductServiceImpl implements ProductService{
 
 	@Autowired
 	ProductRepository productRepository;
+	
+	@Autowired
+	CategoryRepository categoryRepository;
 	
 	@Override
 	public List<Product> getAllProducts() {
@@ -62,6 +67,12 @@ public class ProductServiceImpl implements ProductService{
 	public void deleteProductById(long id) {
 		
 		productRepository.deleteById(id);;
+	}
+
+	@Override
+	public List<Category> getAllCategory() {
+		
+		return categoryRepository.findAll();
 	}
 	
 	

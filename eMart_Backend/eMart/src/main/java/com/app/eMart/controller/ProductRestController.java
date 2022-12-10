@@ -66,7 +66,7 @@ public class ProductRestController {
 
 	@PostMapping("/createProduct")
 	public ResponseEntity<Object> createProduct(@RequestBody Product product) {
-
+System.out.println("product $" + product );
 		try {
 			return new ResponseEntity<>( productService.createProduct(product), HttpStatus.OK);
 		} catch (Exception e) {
@@ -104,6 +104,20 @@ public class ProductRestController {
 			e.printStackTrace();
 			logger.error("conrtoller method deleteProductById thrown exception {} at user {} "+ e.toString());
 			return new ResponseEntity<>("Error Occured at controller deleteProductById() ", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
+	
+	@GetMapping("/allCategory")
+	public ResponseEntity<Object>getAllCategory(){
+
+		try {
+			return new ResponseEntity<>( productService.getAllCategory(), HttpStatus.OK);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("contoller method getAllCategory thrown exception {} at user {} "+ e.toString());
+			return new ResponseEntity<>("Error Occured at contoller getAllCategory() ", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
 	}

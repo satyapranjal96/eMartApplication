@@ -13,8 +13,6 @@ public class Category {
 	
 	@Id
 	@Column(name = "id")
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private int id;
 	
 	@Column(name="name")
@@ -24,10 +22,22 @@ public class Category {
 		
 	}
 
+	
+
+	
+
+
+
 	public Category(String name) {
 		super();
 		this.name = name;
 	}
+
+
+
+
+
+
 
 	public int getId() {
 		return id;
